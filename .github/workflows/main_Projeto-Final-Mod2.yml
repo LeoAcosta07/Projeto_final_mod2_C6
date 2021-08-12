@@ -59,4 +59,4 @@ jobs:
         with:
           app-name: 'Projeto-Final-Mod2'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_29ea5d1981264ac1aad04ffc22b2fa3a }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_8e8ba1644e974953a1742165af1453cf }}
