@@ -257,3 +257,64 @@ color:white;
     color: #cb202d;
     transition: 0.5s ease-in-out;
   }
+
+
+  .itens{
+    list-style: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+  }
+
+.tabela{
+
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #a9aaad;
+    border-spacing: 0;
+    margin: auto;
+    padding: auto;
+    width: 60%;
+}
+
+.tabela img{
+    width: 40%;
+}
+
+.tabela td{
+    padding: 10px;
+}
+
+.tabela_header td{
+    font-weight: bold;
+}
+
+.tabela2{
+
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border: 1px solid #a9aaad;
+    border-spacing: 0;
+    margin: auto;
+    padding: auto;
+    width: 60%;
+}
+
+
+
+.btn:hover { 
+
+    background: rgb(201, 58, 39); 
+  } 
+  
+.btn:active { 
+    padding: 30px; 
+    background: gray; 
+    color: white; 
+  } 

@@ -14,36 +14,53 @@
 {% with log=log %}
   {% include 'header.html' %} 
 {% endwith %}
-<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <!-- FIM DO MENU     -->
 
 
 <!-- PEDIDOS -->
 
-<h1 class="txttres">Cardapio</h1>
-
+<h1 class="txttres">Pedido</h1>
 
 <br>
-<div class="menu">
-    {% for produtos in produtos %}
-    <div class="food-items">
-        <img src="{{ produtos.link_img }}">
-        <div class="details">
-            <div class="details-sub">
-            <h5>{{ produtos["nome"] }}</h5>
-            <h5 class="price">R$ {{ produtos["preco"] }} </h5>
-            </div>
-            <p>{{ produtos["descricao"] }}</p>
-            <button class="btn" onclick="window.location.href ='/{{ produtos.id_produto }}'">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-    {% endfor %}
-</div>
+
+
+<table class="tabela">
+  <tr style= "color:#ffffff" class="tabela_header">
+  </tr>
+  {% for output in output %}
+  <tr>
+      <td style= "color:#ffffff">{{ output.nome }}</td>
+
+      <td><img src="{{ output.link_img }}"></td>
+
+      <td style= "color:#ffffff">{{ output.descricao }}</td>
+      <td style= "color:#ffffff">R${{ output.preco }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<br>
+<table class="tabela2">
+  <tr style= "color:#ffffff" class="tabela_header">
+  </tr>
+  <tr>
+    <td style= "color:#ffffff">TOTAL: R${{ total }}</td>
+  </tr>
+
+</table>
+
+
+
+<section>
+  <br><br>
+  <a href="/clear">Limpar lista</a>
+</section>
+
 
 <br><br>
 <div class="fixed-action-btn">
-  <a href= "/finalizar_pedido" target = "_blank" class="btn-floating btn-large red">
-    <i class="large material-icons">Finalizar Pedido</i>
+  <a href= "/home" target = "_blank" class="btn-floating btn-large red">
+    <i class="large material-icons">Confirmar Pedido</i>
   </a>
 <!-- <div class="finalizar">
 <button onclick= "window.location.href ='checkout.html'">Finalizar Pedido</button> -->
@@ -63,7 +80,7 @@
   <!-- FIM FOOTER -->
   </body>
   </html>
-
+  <script src="../static/js/detalhes.js"></script>
 </body>
 </html>
 

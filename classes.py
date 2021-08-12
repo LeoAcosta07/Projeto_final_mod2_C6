@@ -60,6 +60,9 @@ class Clientes(db.Model):
                 return cliente.id_cliente
          return None 
 
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit() 
 
 class Enderecos(db.Model):
     __tablename__= "enderecos"
@@ -76,6 +79,18 @@ class Enderecos(db.Model):
         self.numero = numero
         self.rua = rua
         self.complemento = complemento
+
+    @staticmethod
+    def consultar_id_endereco(id_cliente):
+         all_enderecos = Enderecos.query.order_by(Enderecos.id_endereco.asc()).all()
+         for cliente in all_enderecos: 
+            if (cliente.id_cliente == id_cliente):
+                return cliente.id_endereco    
+         return False
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit() 
     
 class Forma_pagamento(db.Model):
     __tablename__= "forma_pagamento"
@@ -95,6 +110,18 @@ class Forma_pagamento(db.Model):
         self.validade_mes = validade_mes
         self.validade_ano = validade_ano
 
+    @staticmethod
+    def consultar_id_pagamento(id_cliente):
+         all_pagamentos = Forma_pagamento.query.order_by(Forma_pagamento.id_pagamento.asc()).all()
+         for cliente in all_pagamentos:  
+            if (cliente.id_cliente == id_cliente):
+                return cliente.id_pagamento     
+         return False 
+
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
 class Produtos(db.Model):
     __tablename__= "produtos"
@@ -119,7 +146,9 @@ class Produtos(db.Model):
          # SELECT * from produtos ORDER BY id ASC
          return Produtos.query.order_by(Produtos.id_produto.asc()).all()
 
-
+    @staticmethod
+    def produtos_read_id(id):
+         return Produtos.query.get(id)
 
 class Pedidos(db.Model):
     __tablename__= "pedidos"

@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect,session,url_for
 from flask_sqlalchemy import SQLAlchemy
 import classes
 
+global output
+output = list()
+
 app = classes.app #puxar app da classes
 db = classes.db #puxar o bd da classes
 
@@ -37,12 +40,23 @@ def logout():
     session['id_logado'] = None
     return redirect('/')
 
-@app.route('/deletar_cadastro')
+@app.route('/deletar_cadastro', methods=['GET','POST'])
 def deletar_cadastro():
+    sucesso=False
     id = session['id_logado']
-    info_cliente = classes.Clientes.query.get(id).all()
-    db.session.delete(info_cliente)
-    db.session.commit()
+    cliente = classes.Clientes.query.get(id)
+    id_pagamento = classes.Forma_pagamento.consultar_id_pagamento(id)
+    info_pagamento = classes.Forma_pagamento.query.get(id_pagamento)
+    info_pagamento.delete()
+    id_endereco = classes.Enderecos.consultar_id_endereco(id)
+    info_endereco = classes.Enderecos.query.get(id_endereco)
+    info_endereco.delete()
+    cliente = classes.Clientes.query.get(id)
+    datos=cliente
+    cliente.delete()
+    sucesso=True
+    return render_template('index.html', datos=datos, sucesso=sucesso)
+
 
 @app.route('/editar_cadastro', methods=['GET','POST'])
 def editar_cadastro():
@@ -146,6 +160,44 @@ def cadastro():
         cnome= form['nome']
         csobrenome = form['sobrenome']
     return render_template('cadastro.html', novo_cadastro=novo_cadastro, cnome=cnome, csobrenome=csobrenome)
+
+
+@app.route('/finalizar_pedido')
+def carrinho2():
+    registros = list()
+    total = 0
+    for id in output:
+        r = dict()
+        datos = classes.Produtos.produtos_read_id(id)
+        r["nome"] = datos.nome
+        r["link_img"] = datos.link_img
+        r["preco"] = datos.preco
+        r["descricao"] = datos.descricao
+        total = datos.preco + total
+        registros.append(r)
+    return render_template('detalhes.html', output=registros, total=total)
+
+@app.route('/clear')
+def clear(): 
+   output.clear() 
+   return redirect('/menu')
+
+
+class carrinho():
+    def __init__(self, id_produto):
+        self.id_produto = id_produto
+
+    @staticmethod
+    def contar_p(id_produto):
+        output.append(id_produto)
+        return output
+
+
+@app.route('/<id_produto>', methods=['GET','POST'])
+def ver_produto(id_produto):
+    detalhes = carrinho.contar_p(id_produto)
+    return redirect('/menu')
+
 
 @app.route('/sobre')
 def sobre():

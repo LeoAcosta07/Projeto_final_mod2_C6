@@ -167,6 +167,11 @@ ul.order-list li > img {
   float: left;
 }
 
+.img2{
+  width: 60px;
+  height: 60px;
+}
+
 ul.order-list li > h4 {
   margin-top: 16px;
   line-height: 1;
