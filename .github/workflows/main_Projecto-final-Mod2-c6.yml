@@ -59,4 +59,4 @@ jobs:
         with:
           app-name: 'Projecto-final-Mod2-c6'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_23ea92d3416e4b22905ba0150b9f0599 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_1171b99673c24d50a8cadbea0dac130c }}
