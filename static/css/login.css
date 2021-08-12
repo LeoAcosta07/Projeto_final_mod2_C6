@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0, 0, 0);
+    font-family: 'Poppins',sans-serif;
+}
+
+/* SCROLLMENU */
+
+div.scrollmenu {
+    overflow: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  div.scrollmenu a {
+    display: inline-block;
+    font-family: "Noto Sans JP";
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  div.scrollmenu a:hover {
+    background-color: #777;
+  }
+
+/* FIM SCROLLMENU */
+
+    form {
+    border: 5px solid #ffffff;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%)
+    }
+    input[type=text], input[type=password] {
+    width: 100%;
+    padding: 16px 8px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    }
+    .icon {
+    padding-top: 0.5rem;
+    font-size: 30px; 
+    display: flex;
+    justify-content: left;
+    color: #ffffff;
+    left: 20px;
+    justify-content: space-evenly;
+    }
+
+    button {
+    background-color: #4286f4;
+    color: white;
+    padding: 14px 0;
+    margin: 10px 0;
+    border: none;
+    cursor: grab;
+    width: 48%;
+    }
+    h1 {
+    text-align:center;
+    font-size: 24px;
+    color: white;
+    }
+    button:hover {
+    opacity: 0.8;
+    }
+    .formcontainer {
+    text-align: center;
+    margin: 24px 50px 12px;
+    color: white;
+    }
+    .container {
+    padding: 16px 0;
+    text-align:left;
+    }
+    span.psw {
+    float: right;
+    padding-top: 0;
+    padding-right: 15px;
+    }
+    /* Change styles for span on extra small screens */
+    @media screen and (max-width: 300px) {
+    span.psw {
+    display: block;
+    float: none;}
+    }
+
+    
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../static/css/stylemenu.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicon-32x32.png" />
+    <title>Blu-guer</title>
+  </head>
+<body>
+
+<!-- MENU -->
+{% with log=log %}
+  {% include 'header.html' %} 
+{% endwith %}
+
+<br><br><br><br><br><br><br><br><br><br><br>
+<!-- FIM DO MENU     -->
+
+<!-- TÍTULO -->
+
+<div id="slider">
+  <figure>
+      <img src="../static/img/cinco.jpg">
+      <img src="../static/img/seis.jpg">  
+      <img src="../static/img/sete.jpg">
+      <img src="../static/img/oito.jpg">
+      <img src="../static/img/nove.jpg">
+  </figure>
+</div>
+
+<!-- FIM DO TÍTULO -->
+{% if msg%}<h1>msg</h1>{% endif %}
+</body>
+</html>

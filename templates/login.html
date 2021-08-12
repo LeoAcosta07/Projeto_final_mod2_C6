@@ -1,0 +1,51 @@
+<<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../static/css/login.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicon-32x32.png" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <title>Blu-guer Login</title>
+  </head>
+<body>
+    <!-- MENU -->
+
+    {% with log=log %}
+    {% include 'header.html' %} 
+  {% endwith %} 
+    <br><br><br><br><br><br><br><br>
+   
+  
+  <!-- FIM DO MENU     -->
+  
+<div>
+    <form action="/cadastro" method='POST'>
+      <input type='hidden' name='prox' value="{{ prox or url_for('index')}}">
+     <br><br>
+        <!-- <h1>Login</h1> -->
+        <div class="icon">
+            <i class="fa fa-user-circle"></i>
+            <h1>Login</h1>
+          </div>
+          <div class="formcontainer">
+          <div class="container">
+            <label for="email"><strong>E-mail</strong></label>
+            <input type="text" placeholder="Digite seu E-mail" name="email" required>
+            <label for="senha"><strong>Senha</strong></label>
+            <input type="password" placeholder="Digite sua Senha" name="senha" required>
+          </div>
+          <button type="submit"><strong>LOGIN</strong></button>
+
+          <div class="container" style="background-color: rgb(0, 0, 0)">
+            <label style="padding-left: 15px">
+            <input type="checkbox"  checked="checked" name="remember"> Manter logado
+            </label>
+            <span class="psw"><a href="#">Esqueceu a Senha?</a></span>
+        </div>
+    </form>
+
+    
+</div>
+</body>
+</html>

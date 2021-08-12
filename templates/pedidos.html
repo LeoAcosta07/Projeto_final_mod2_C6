@@ -1,0 +1,73 @@
+{%extends 'template.html' %}
+{% block content %}
+
+<h1 class="pedidos">Pedidos</h1>
+<br><br>
+
+<form action="{{url_for('finalizar_pedido')}}" method="POST" class ="order">
+  <table aligned="center"><br><br><br><br>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>Quantidade</th> 
+      <th>Preço Unitário</th>
+      <th>Total:</th>
+    </tr>
+    <tr>
+      <td><img src="{{ url_for('static', filename='img/three.jpg') }}" width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><img src="{{ url_for('static', filename='img/sobdois.jpg') }}" width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="text" size=10></td>
+      <td><input type="text" value="12" readonly size=10></td>
+      <td><input type="text" size=10 disabled></td>
+    </tr>
+
+    <tr>
+      <td><img src="{{ url_for('static', filename='img/two.jpg') }}" width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><img src="{{ url_for('static', filename='img/sobum.jpg') }}"  width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="text" size=10></td>
+      <td><input type="text" value="12" readonly size=10></td>
+      <td><input type="text" size=10 disabled></td>
+    </tr>
+      
+    <tr>
+      <td><img src="{{ url_for('static', filename='img/four.jpg') }}" width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><img src="{{ url_for('static', filename='img/sobtres.jpg') }}" width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="text" size=10></td>
+      <td><input type="text" value="12" readonly size=10></td>
+      <td><input type="text" size=10 disabled></td>
+    </tr>
+
+    <tr>
+      <td><img src="{{ url_for('static', filename='img/five.jpg') }}" width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><img src="{{ url_for('static', filename='img/sobquatro.jpg') }}" width="250" height="200"></td>
+      <td><input type="checkbox"></td>
+      <td><input type="text" size=10></td>
+      <td><input type="text" value="12" readonly size=10></td>
+      <td><input type="text" size=10 disabled></td>
+    </tr>
+
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      
+      <td>Total:</td>
+      <td><input type="text" size=10 disabled></td>
+      <tr><tr><tr><tr><tr><tr><tr><tr></tr>
+      
+      <td conlpan=5><input type="Submit" class="btn" value="Pagamento"></td>
+      <td conlpan=5><input type="Reset"  class="btn" value="Cancelar"></td>
+      
+    </table>
+</form>
+{% endblock %}

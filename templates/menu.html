@@ -1,0 +1,77 @@
+<<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../static/css/stylemenu.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicon-32x32.png" />
+    <title>Blu-guer Cardapio</title>
+  </head>
+<body>
+
+<!-- MENU -->
+
+{% with log=log %}
+  {% include 'header.html' %} 
+{% endwith %}
+<br><br><br><br><br><br><br><br><br><br>
+  <!-- FIM DO MENU     -->
+
+
+<!-- PEDIDOS -->
+
+<h1 class="txttres">Cardapio</h1>
+
+
+<br>
+<div class="menu">
+    {% for produtos in produtos %}
+    <div class="food-items">
+        <img src="{{ produtos.link_img }}">
+        <div class="details">
+            <div class="details-sub">
+            <h5>{{ produtos["nome"] }}</h5>
+            <h5 class="price">R$ {{ produtos["preco"] }} </h5>
+            </div>
+            <p>{{ produtos["descricao"] }}</p>
+            <button onclick= "window.location.href ='checkout.html'">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<br><br>
+<div class="fixed-action-btn">
+  <a href= "window.location.href ='finalizar_pedido'" target = "_blank" class="btn-floating btn-large red">
+    <i class="large material-icons">Finalizar Pedido</i>
+  </a>
+<!-- <div class="finalizar">
+<button onclick= "window.location.href ='checkout.html'">Finalizar Pedido</button> -->
+</div>
+<!-- FIM DOS PEDIDOS -->
+<br><br>
+<!-- FOOTER -->
+
+<!-- <div class="final">
+    <a href="fale.html" target=_blank>Fale Conosco</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="sobre.html">Sobre</a> 
+    </div>  -->
+  
+  <footer class="footer">
+    Copyright 2021
+  </footer>
+  <!-- FIM FOOTER -->
+  </body>
+  </html>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

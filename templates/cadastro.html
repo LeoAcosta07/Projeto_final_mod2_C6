@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="../static/css/stylecadastro.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/img/favicon-32x32.png" />
+    <title>Blu-guer Cardapio</title>
+  </head>
+  <body>
+
+    <!-- MENU -->
+
+    {% with log=log %}
+      {% include 'header.html' %} 
+    {% endwith %}
+
+    <br><br><br><br><br><br><br><br><br>
+      <!-- FIM DO MENU     -->
+   
+      {% if not novo_cadastro %}
+        <h1 class="txttres">Novo cadastro</h1>
+        <div class="row">
+          <div class="col-75">
+            <div class="container_cadastro">
+            <form class="form" method="POST">
+                <div class="row form_input">
+                  <div class="col-50 form_input">
+                    <h3>Dados Pessoais</h3>
+                      <label for="fname" class="fa fa-user">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu Nome">
+                      <label for="fname" class="fa fa-user">Sobrenome</label>
+                        <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu Sobrenome">
+                      <label for="fname"><i class="fa fa-mobile"></i>Telefone</label>
+                        <input type="text" id="telefone" name="telefone" placeholder="Seu Telefone ">
+                      <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <input type="text" id="email" name="email" placeholder="seunome@example.com">
+                      <label for="fname"><i class="fa fa-user"></i>Usuario</label>
+                        <input type="text" id="usuario" name="usuario" placeholder="Escolha um nome de usuario">
+                      <label for="fname"><i class="fa fa-user"></i>Senha</label>
+                        <input type="password" id="senha1" name="senha1" placeholder="Digite uma senha">
+                      <label for="fname"><i class="fa fa-user"></i>Confirmar senha</label>
+                        <input type="password" id="senha" name="senha" placeholder="Confirme sua senha">
+              
+                    
+                  </div>
+                  <div class="col-50 form_input">
+                    <h3>Endereço de entrega</h3>
+                    <div>
+                      <label for="ccnum">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="Ingresse seu CEP">
+                      <label for="cvv">Rua</label>
+                        <input type="text" id="rua" name="rua" placeholder="Ingresse sua Rua">
+                      <label for="cvv">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="Ingresse o número de porta">
+                      <label for="cvv">Complemento</label>
+                        <input type="text" id="complemento" name="complemento" placeholder="Complemento">
+                    </div>
+                  
+
+                  <div class="col-50 form_input">
+                    <h3>Método de Pagamento</h3>
+                    <div class="form_input">
+                      <label for="ccnum">Número do Cartão:</label>
+                      <input type="text" id="numero_cartao" name="numero_cartao" placeholder="Número do cartão de credito">
+                      <label for="cvv">Nome (como aparece no cartão)</label>
+                      <input type="text" id="nome_cartao" name="nome_cartao" placeholder="Nome do cartão">
+                      <label for="cvv">CPF</label>
+                      <input type="text" id="cpf" name="cpf" placeholder="CPF registrado no cartão">
+                    <div class="vencimento form_input">
+                        <label for="cvv">Mes de vencimento</label>
+                        <input type="vencimento" id="mes_vencimento" name="mes_vencimento" placeholder="mm">
+                        <label for="cvv">Ano de vencimento</label>
+                        <input type="vencimento" id="ano_vencimento" name="ano_vencimento" placeholder="aaaa">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label class="col-50">
+                  <input type="checkbox" checked="checked" name="sameadr"> Mesmo endereço para cobrança
+                </label>
+
+                <h3 class="col-50">Termos de Uso</h3>
+                <label class="col-50">
+                <input type="checkbox" checked="checked" name="sameadr">Eu aceito a política de privacidade
+                </label>
+
+                  <label class="col-50">
+                    <input type="checkbox" checked="checked" name="sameadr"> Eu aceito receber emails sobre ofertas e novidades
+                    </label>
+                      <button type="submit" class="btn">Realizar Cadastro</button>
+              </form>
+              </div>
+          </div>
+        </div>
+        </div>
+        <br>
+
+      {% else %}
+        {% if not existe %}
+          <div class="col-50">
+            <h1 class="txttres">Cadastro realizado com sucesso</h1>
+          </div>
+          <div class="col-50 container_cadastro">
+            <p>
+                Bem-vindo  <span class="cnoma">{{ cnome }}</span>  <span class="csobrenome">{{ csobrenome }}</span>!!<br /><br />
+                <button onclick="window.location.href='/menu'" class="btn">Olhar cardapio</button>
+            </p>
+          </div>
+          {% else %}
+          <div class="col-50">
+            <h1 class="txttres">Atenção!!</h1>
+          </div>
+          <div class="col-50 container_cadastro">
+            <p>
+                <span class="existe">{{ existe }}</span> :<span class="email">{{ email }}</span><br /><br />
+                <button onclick="window.location.href='/menu'" class="btn">Olhar cardapio</button>
+            </p>
+          </div>
+        {% endif %}
+      {% endif %}
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      Copyright 2021
+    </footer>
+    <!-- FIM FOOTER -->
+  </body>
+</html>
+

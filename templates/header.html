@@ -1,0 +1,28 @@
+<header class="header">
+<link rel="stylesheet" type='text/css' href="{{url_for('static',filename='css/style.css')}}"> 
+  <div class="container logo-nav-container">
+    <img class=logo src="https://i.pinimg.com/564x/7d/f0/b1/7df0b109f1f930c4bfba3224ac6c350a.jpg" width="130"/>
+    <a class="logo">THE BLU-GUER</a>
+      <nav class="navigation">
+          <ul class="show">
+            <li class="show-center"> <a href="/home">Home</a> </li>
+            <li class="show-center"> <a href="/menu">Cardapio</a> </li>
+            <li class="show-center"> <a href="/sobre">Sobre</a> </li>
+
+            {% if log%}
+              <li class="show-rigth"> <a href="/logout">Logout</a> </li>
+              <li class="show-rigth"> <a href="/editar_cadastro">Editar Cadastro</a> </li>
+              <li class="show-rigth"> <a href="/deletar_cadastro">Apagar Cadastro</a> </li>
+            {% else %}
+              <li class="show-rigth"> <a href="/login">Login</a> </li>
+              <li class="show-rigth"> <a href="/cadastro">Cadastro</a> </li>
+            {% endif %}
+          </ul>
+      </nav>
+  </div>
+</header>
+
+
+
+
+
